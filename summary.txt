@@ -1,0 +1,57 @@
+EUROPEAN SOCCER EDA - KEY NUMBERS
+=================================
+
+Matches: 25979 | Seasons: 2008-2016 | Leagues: 11
+
+--- Insight 1: Home advantage erosion ---
+# A tibble: 8 × 5
+  season_start matches home_win_pct draw_pct away_win_pct
+         <int>   <int>        <dbl>    <dbl>        <dbl>
+1         2008    3326        0.471    0.250        0.279
+2         2009    3230        0.474    0.252        0.274
+3         2010    3260        0.466    0.257        0.276
+4         2011    3220        0.465    0.254        0.281
+5         2012    3260        0.443    0.262        0.295
+6         2013    3032        0.463    0.243        0.294
+7         2014    3325        0.449    0.256        0.295
+8         2015    3326        0.439    0.257        0.304
+
+Home-win trend: -0.0045 per year (p = 0.010)
+
+--- Insight 2: Favorite calibration ---
+# A tibble: 5 × 5
+  fav_bucket matches fav_win_rate upset_rate avg_fav_prob
+  <fct>        <int>        <dbl>      <dbl>        <dbl>
+1 35-45%        8448        0.415      0.585        0.405
+2 45-55%        6224        0.503      0.497        0.497
+3 55-65%        3603        0.604      0.396        0.595
+4 65-75%        2650        0.715      0.285        0.691
+5 75%+          1529        0.846      0.154        0.797
+
+Strong favorites (>=65% prob) win 76.3% of the time.
+
+--- Insight 3: Tactical traits ---
+Speed (no effect):
+# A tibble: 3 × 3
+  speed_bucket         n avg_ppm
+  <fct>            <int>   <dbl>
+1 Slow (<=40)        147    1.39
+2 Balanced (41-60)   944    1.37
+3 Fast (>60)         379    1.39
+Pressure (matters):
+# A tibble: 4 × 3
+  press_bucket         n avg_ppm
+  <fct>            <int>   <dbl>
+1 Low (<=40)         420    1.22
+2 Med-Low (41-50)    623    1.35
+3 Med-High (51-60)   329    1.53
+4 High (>60)          98    1.66
+Passing (matters):
+# A tibble: 3 × 3
+  pass_bucket       n avg_ppm
+  <fct>         <int>   <dbl>
+1 Short (<=40)    378    1.47
+2 Mixed (41-60)   923    1.37
+3 Long (>60)      169    1.20
+
+Correlations with PPM:  speed=+0.029  passing=-0.211  pressure=+0.315
